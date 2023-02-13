@@ -8,7 +8,7 @@ export const theme = Object.freeze({
     grey: '#EFEFEF',
     text: '#2a2a2a',
     background: '#fff',
-    primary: '#3d5a80',
+    primary: '#07c',
     secondary: '#05c',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
@@ -23,7 +23,7 @@ export const theme = Object.freeze({
     s: 14,
     m: 20,
     l: 32,
-    xl: 42,
+    xl: 64,
   },
   fontWeights: {
     normal: 400,

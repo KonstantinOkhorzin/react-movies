@@ -28,4 +28,8 @@ export const GlobalStyleComponent = createGlobalStyle`
   font-size: ${p => p.theme.fontSizes.s}px;
   line-height: ${p => p.theme.lineHeights.body};
   }
+
+  #root {
+    min-height: 100%;
+  }
 `;
