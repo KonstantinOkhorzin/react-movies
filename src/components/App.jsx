@@ -4,10 +4,11 @@ import Title from './Title';
 import Container from './UI/Container';
 import SearchForm from './SearchForm';
 import FilterPanel from './FilterPanel';
+import MoviesList from './MoviesList';
 
 class App extends Component {
   state = {
-    movies: [],
+    movies: null,
     search: '',
     type: 'all',
     page: 1,
@@ -28,13 +29,14 @@ class App extends Component {
   };
 
   render() {
-    const { type } = this.state;
+    const { movies, type } = this.state;
 
     return (
       <Container>
         <Title />
         <SearchForm onSearchMovie={this.searchMovie} />
         <FilterPanel type={type} onFilterChange={this.filterChange} />
+        {movies && <MoviesList movies={movies} />}
       </Container>
     );
   }
