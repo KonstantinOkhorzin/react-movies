@@ -7,7 +7,7 @@ import IconButton from '../UI/IconButton';
 
 class SearchForm extends Component {
   state = {
-    search: '',
+    query: '',
   };
 
   onInputChange = e => {
@@ -17,14 +17,20 @@ class SearchForm extends Component {
 
   onFormSubmit = e => {
     e.preventDefault();
-    this.props.onSearchMovie(this.state.search);
+
+    if (this.state.query.trim() === '') {
+      alert('Please, enter movie name');
+      return;
+    }
+    
+    this.props.onSearchMovie(this.state.query);
   };
 
   render() {
-    const { search } = this.state;
+    const { query } = this.state;
     return (
       <Form onSubmit={this.onFormSubmit}>
-        <Input name='search' value={search} onChange={this.onInputChange} />
+        <Input name='query' value={query} onChange={this.onInputChange} />
         <IconButton type='submit' aria-label='search'>
           <ImSearch />
         </IconButton>

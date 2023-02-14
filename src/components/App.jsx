@@ -4,39 +4,31 @@ import Title from './Title';
 import Container from './UI/Container';
 import SearchForm from './SearchForm';
 import FilterPanel from './FilterPanel';
-import MoviesList from './MoviesList';
+import MoviesInfo from './MoviesInfo';
 
 class App extends Component {
   state = {
-    movies: null,
-    search: '',
+    query: '',
     type: 'all',
-    page: 1,
   };
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.search !== this.state.search) {
-      console.log('update state');
-    }
-  }
 
   filterChange = e => {
     this.setState({ type: e.target.value });
   };
 
   searchMovie = movie => {
-    this.setState({ search: movie.toLowerCase() });
+    this.setState({ query: movie.toLowerCase() });
   };
 
   render() {
-    const { movies, type } = this.state;
+    const { type, query } = this.state;
 
     return (
       <Container>
         <Title />
         <SearchForm onSearchMovie={this.searchMovie} />
         <FilterPanel type={type} onFilterChange={this.filterChange} />
-        {movies && <MoviesList movies={movies} />}
+        <MoviesInfo type={type} searchQuery={query} />
       </Container>
     );
   }

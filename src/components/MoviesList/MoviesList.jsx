@@ -1,19 +1,19 @@
 import PropTypes from 'prop-types';
 
 import MovieCard from '../MovieCard';
-import {List, ButtonMore } from './MoviesList.styled';
+import { List, ButtonMore } from './MoviesList.styled';
 
-const MoviesList = ({ movies }) => {
-    return (
-      <>
-        <List>
-          {movies.map(({ imdbID: id, ...restProps }) => (
-            <MovieCard key={id} {...restProps} />
-          ))}
-        </List>
-        <ButtonMore>load more</ButtonMore>
-      </>
-    );
+const MoviesList = ({ movies, totalMovies}) => {
+  return (
+    <>
+      <List>
+        {movies.map(({ imdbID: id, ...restProps }) => (
+          <MovieCard key={id} {...restProps} />
+        ))}
+      </List>
+      {movies.length !== totalMovies && <ButtonMore>load more</ButtonMore>}
+    </>
+  );
 };
 
 MoviesList.propTypes = {
@@ -22,6 +22,7 @@ MoviesList.propTypes = {
       imdbID: PropTypes.string.isRequired,
     })
   ).isRequired,
+  totalMovies: PropTypes.number.isRequired,
 };
 
 export default MoviesList;
