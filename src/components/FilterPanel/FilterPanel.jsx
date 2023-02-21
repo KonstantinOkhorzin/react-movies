@@ -5,7 +5,7 @@ import { StyledButton } from '../UI/Button/Button';
 
 const filterValues = ['all', 'movie', 'series', 'episode'];
 
-const FilterPanel = ({ type, onFilterChange }) => {
+const FilterPanel = ({ type, onSetType }) => {
   return (
     <StyledFilterPanel>
       {filterValues.map(value => (
@@ -15,7 +15,7 @@ const FilterPanel = ({ type, onFilterChange }) => {
             name='type'
             value={value}
             checked={type === value}
-            onChange={onFilterChange}
+            onChange={onSetType}
           />
           <StyledButton as='span'>{value}</StyledButton>
         </label>
@@ -26,7 +26,7 @@ const FilterPanel = ({ type, onFilterChange }) => {
 
 FilterPanel.propTypes = {
   type: PropTypes.string.isRequired,
-  onFilterChange: PropTypes.func.isRequired,
+  onSetType: PropTypes.func.isRequired,
 };
 
 export default FilterPanel;

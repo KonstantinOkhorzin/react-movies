@@ -4,7 +4,6 @@ import { StyledButton } from '../UI/Button/Button';
 
 export const StyledFilterPanel = styled.div`
   margin-top: ${({ theme }) => theme.space[2]}px;
-  margin-bottom: ${({ theme }) => theme.space[5]}px;
   display: flex;
   justify-content: center;
   gap: ${({ theme }) => theme.space[1]}px;

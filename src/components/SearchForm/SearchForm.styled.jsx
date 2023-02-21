@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const Form = styled.form`
   max-width: 500px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: ${({ theme }) => theme.space[5]}px;
   display: grid;
   grid-template-columns: 1fr auto;
 `;

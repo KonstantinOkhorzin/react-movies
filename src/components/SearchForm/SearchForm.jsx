@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 
 import { Form, Input } from './SearchForm.styled';
 import IconButton from '../UI/IconButton';
+import FilterPanel from '../FilterPanel';
 
 const SearchForm = ({ onSearchMovie }) => {
   const [query, setQuery] = useState('');
+  const [type, setType] = useState('');
 
   const onFormSubmit = e => {
     e.preventDefault();
@@ -15,8 +17,8 @@ const SearchForm = ({ onSearchMovie }) => {
       alert('Please, enter movie name');
       return;
     }
-
-    onSearchMovie(query);
+    setType(type === '' ? 'all' : type);
+    onSearchMovie(query, type);
   };
 
   return (
@@ -25,6 +27,7 @@ const SearchForm = ({ onSearchMovie }) => {
       <IconButton type='submit' aria-label='search'>
         <ImSearch />
       </IconButton>
+      <FilterPanel type={type} onSetType={e => setType(e.target.value)} />
     </Form>
   );
 };
