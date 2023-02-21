@@ -1,43 +1,33 @@
-import React, { Component } from 'react';
+import { useState } from 'react';
 import { ImSearch } from 'react-icons/im';
 import PropTypes from 'prop-types';
 
 import { Form, Input } from './SearchForm.styled';
 import IconButton from '../UI/IconButton';
 
-class SearchForm extends Component {
-  state = {
-    query: '',
-  };
+const SearchForm = ({ onSearchMovie }) => {
+  const [query, setQuery] = useState('');
 
-  onInputChange = e => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
-
-  onFormSubmit = e => {
+  const onFormSubmit = e => {
     e.preventDefault();
 
-    if (this.state.query.trim() === '') {
+    if (query.trim() === '') {
       alert('Please, enter movie name');
       return;
     }
-    
-    this.props.onSearchMovie(this.state.query);
+
+    onSearchMovie(query);
   };
 
-  render() {
-    const { query } = this.state;
-    return (
-      <Form onSubmit={this.onFormSubmit}>
-        <Input name='query' value={query} onChange={this.onInputChange} />
-        <IconButton type='submit' aria-label='search'>
-          <ImSearch />
-        </IconButton>
-      </Form>
-    );
-  }
-}
+  return (
+    <Form onSubmit={onFormSubmit}>
+      <Input name='query' value={query} onChange={e => setQuery(e.target.value)} />
+      <IconButton type='submit' aria-label='search'>
+        <ImSearch />
+      </IconButton>
+    </Form>
+  );
+};
 
 SearchForm.propTypes = {
   onSearchMovie: PropTypes.func.isRequired,
