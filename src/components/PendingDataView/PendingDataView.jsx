@@ -6,7 +6,7 @@ const Spinner = styled.div`
     justify-content: center;
 `
 
-const MoviesPendingView = () => {
+const PendingDataView = () => {
   return (
     <Spinner>
       <CircularProgress />
@@ -14,4 +14,4 @@ const MoviesPendingView = () => {
   );
 };
 
-export default MoviesPendingView;
+export default PendingDataView;

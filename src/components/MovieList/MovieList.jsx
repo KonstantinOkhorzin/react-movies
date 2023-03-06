@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import MovieCard from '../MovieCard';
 import { List } from './MovieList.styled';
 
-const MoviesList = ({ movies}) => {
+const MoviesList = ({ movies }) => {
   return (
     <List>
-      {movies.map(({ imdbID: id, ...restProps }) => (
-        <MovieCard key={id} {...restProps} />
+      {movies.map(movie => (
+        <MovieCard key={movie.imdbID} {...movie} />
       ))}
     </List>
   );

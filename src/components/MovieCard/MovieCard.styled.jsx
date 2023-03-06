@@ -1,11 +1,19 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const Card = styled.li`
+export const Card = styled(Link)`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: minmax(310px, auto) auto;
   box-shadow: ${({ theme }) => theme.shadows.small};
   border-radius: ${({ theme }) => theme.radii.normal};
+  transition: transform ${({ theme }) => theme.animation.cubicBezier};
+  transform: scale(1);
+
+  :hover,
+  :focus-visible {
+    transform: scale(1.03);
+  }
 `;
 
 export const CardImg = styled.img`

@@ -8,8 +8,15 @@ function fetchMovies(query, type, page) {
   ).then(response => response.json());
 }
 
+function fetchMovieById(movieId) {
+  return fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&i=${movieId}`).then(response =>
+    response.json()
+  );
+}
+
 const api = {
   fetchMovies,
+  fetchMovieById,
 };
 
 export default api;

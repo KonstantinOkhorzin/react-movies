@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 
 import { Card, CardImg, CardContent, CardTitle, CardBottom } from './MovieCard.styled';
 
-const MovieCard = ({ Poster: poster, Title: title, Type: type, Year: year }) => {
+const MovieCard = ({ Poster: poster, Title: title, Type: type, Year: year, imdbID: id }) => {
   return (
-    <Card>
+    <Card to={id}>
       <CardImg src={poster} alt='' />
       <CardContent>
         <CardTitle>{title}</CardTitle>

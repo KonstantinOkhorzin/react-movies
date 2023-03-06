@@ -8,12 +8,12 @@ const Message = styled.p`
   color: ${({ theme }) => theme.colors.red};
 `;
 
-const MoviesErrorView = ({ error }) => {
+const ErrorDataView = ({ error }) => {
   return <Message>{error}</Message>;
 };
 
-MoviesErrorView.propTypes = {
+ErrorDataView.propTypes = {
   error: PropTypes.string.isRequired,
 };
 
-export default MoviesErrorView;
+export default ErrorDataView;
